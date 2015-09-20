@@ -8,66 +8,322 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="/styles/index.css" media="all">
+
+    <!-- Code Highlighting -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/styles/monokai.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.8.0/highlight.min.js"></script>
   </head>
   <body>
 
-    <section class="gf-slide js-gf-slide">
+    <section id="slide-intro" class="slide js-slide">
       <h1>The Web.</h1>
-      <h3>Just a bit more Appy.</h3>
-      <p>Physical Web</p>
-    </section>
-
-    <section class="gf-slide js-gf-slide gf-slide-hello">
-      <div class="bg"></div>
-      <div class="content">
-        <h1>Hello</h1>
-        <h3>@gauntface</h3>
+      <h6>Just a bit more Appy.</h6>
+      <div class="slide-spacer"></div>
+      <div class="slide-flex-row">
+        <h6>Matt Gaunt</h6>
+        <div class="slide-spacer"></div>
+        <img src="images/physical-web-logo.svg" />
       </div>
     </section>
 
-    <section class="gf-slide js-gf-slide">
+    <section id="slide-hello" class="slide js-slide">
+      <div class="bg"></div>
+      <div class="content">
+        <h1>Hello</h1>
+        <h6>gauntface.com</h6>
+      </div>
+    </section>
+
+    <section class="slide js-slide">
       <h1>Not One of "Those" Talks</h1>
-      <h3>Honest</h3>
+      <h3>Promise.</h3>
     </section>
 
-    <section class="gf-slide js-gf-slide">
-      <h1>New Standards</h1>
-      <ol>
-        <li>Service Worker</li>
-        <li>Push Spec</li>
-        <li>Web App Manifest</li>
-      </ol>
+    <section id="slide-new-apis" class="slide js-slide">
+      <h1 class="slide-top-end">New Standards</h1>
+      <main class="slide-flex-column">
+        <div class="slide-spacer"></div>
+        <h3>Service Worker</h3>
+        <div class="slide-spacer"></div>
+        <h3>Push Messaging</h3>
+        <div class="slide-spacer"></div>
+        <h3>Web App Manifest</h3>
+        <div class="slide-spacer"></div>
+      </main>
     </section>
 
-    <section class="gf-slide js-gf-slide">
+    <section class="slide js-slide slide-title">
+      <main>
+        <h1>What are Service Workers?</h1>
+        <h6>Deep Breath</h6>
+      </main>
+    </section>
+
+    <section id="slide-sw-diagram" class="slide js-slide">
       <h1>What are Service Workers?</h1>
 
-      <div class="browser-diagram">
+      <main class="slide-flex-row">
         <div class="left">
           <h1>Your Web Page</h1>
-          <img src="images/sw-diagram-webpage-icons.png" />
+          <img src="images/sw-diagram-webpage-icons.svg" />
         </div>
-        <div class="center">
+        <div class="center chrome-logo">
+          <img src="images/chrome-logo.png" />
+        </div>
+        <div class="right invisible">
+          <h1>Your Service Worker</h1>
+          <img src="images/sw-diagram-sw-icons.svg" />
+        </div>
+      </main>
+    </section>
+
+    <section id="slide-sw-diagram" class="slide js-slide">
+      <h1>What are Service Workers?</h1>
+
+      <main class="slide-flex-row">
+        <div class="left">
+          <h1>Your Web Page</h1>
+          <img src="images/sw-diagram-webpage-icons.svg" />
+        </div>
+        <div class="center chrome-logo">
           <img src="images/chrome-logo.png" />
         </div>
         <div class="right">
           <h1>Your Service Worker</h1>
-          <img src="images/sw-diagram-sw-icons.png" />
+          <img src="images/sw-diagram-sw-icons.svg" />
         </div>
-      </div>
+      </main>
     </section>
 
-    <section class="gf-slide js-gf-slide">
+    <section id="slide-sw-diagram" class="slide js-slide">
+      <h1>What are Service Workers?</h1>
+
+      <main class="slide-flex-row">
+        <div class="left">
+          <h1>Your Web Page</h1>
+          <img src="images/sw-diagram-webpage-icons.svg" />
+        </div>
+        <div class="center chrome-logo">
+          <img src="images/link-icon.svg" />
+        </div>
+        <div class="right">
+          <h1>Your Service Worker</h1>
+          <img src="images/sw-diagram-sw-icons.svg" />
+        </div>
+      </main>
+    </section>
+
+    <section id="slide-sw-diagram" class="slide js-slide">
+      <h1>What are Service Workers?</h1>
+
+      <main class="slide-flex-row">
+        <div class="left">
+          <h1>Your Web Page</h1>
+          <img src="images/sw-diagram-webpage-icons.svg" />
+        </div>
+        <div class="center chrome-logo">
+          <img src="images/chrome-logo.png" />
+        </div>
+        <div class="right">
+          <h1>Your Service Worker</h1>
+          <img src="images/sw-diagram-sw-icons.svg" />
+        </div>
+      </main>
+    </section>
+
+    <section id="slide-sw-diagram" class="slide js-slide">
+      <h1>What are Service Workers?</h1>
+
+      <main class="slide-flex-row">
+        <div class="left invisible">
+          <h1>Your Web Page</h1>
+          <img src="images/sw-diagram-webpage-icons.svg" />
+        </div>
+        <div class="center chrome-logo">
+          <img src="images/chrome-logo.png" />
+        </div>
+        <div class="right">
+          <h1>Your Service Worker</h1>
+          <img src="images/sw-diagram-sw-icons.svg" />
+        </div>
+      </main>
+    </section>
+
+
+    <section class="slide js-slide slide-title">
+      <main>
+        <h6>A Look at the</h6>
+        <h1>Service Worker API</h1>
+      </main>
+    </section>
+
+    <section id="slide-sw-diagram" class="slide js-slide">
+      <h1>Register a Service Worker</h1>
+      <h6>Making the Link.</h6>
+
+      <main class="slide-flex-row">
+        <div class="left dim">
+          <h1>Your Web Page</h1>
+          <img src="images/sw-diagram-webpage-icons.svg" />
+        </div>
+        <div class="center chrome-logo highlight">
+          <img src="images/link-icon-plain.svg" />
+        </div>
+        <div class="right dim">
+          <h1>Your Service Worker</h1>
+          <img src="images/sw-diagram-sw-icons.svg" />
+        </div>
+      </main>
+    </section>
+
+    <section id="slide-sw-diagram" class="slide js-slide">
+      <h1>Register a Service Worker</h1>
+      <h6>Progressive Enhancement Check.</h6>
+
+      <main>
+        <pre class="start highlight"><code>if ('serviceWorker' in navigator) {</code></pre>
+<pre class="end dim"><code>  navigator.serviceWorker.register('/sw.js')
+    .then(function(registration) {
+      console.log('ServiceWorker registration successful');
+    })
+    .catch(function(err) {
+      console.log('ServiceWorker registration failed');
+    });
+}</code></pre>
+      </main>
+    </section>
+
+    <section id="slide-sw-diagram" class="slide js-slide">
+      <h1>Register a Service Worker</h1>
+      <h6>register()</h6>
+      <main>
+        <pre class="start"><code>if ('serviceWorker' in navigator) {</code></pre>
+<pre class="middle highlight"><code>  navigator.serviceWorker.register('/sw.js')</code></pre>
+<pre class="end dim"><code>    .then(function(registration) {
+      console.log('ServiceWorker registration successful');
+    })
+    .catch(function(err) {
+      console.log('ServiceWorker registration failed');
+    });
+}</code></pre>
+      </main>
+    </section>
+
+    <section id="slide-sw-diagram" class="slide js-slide">
+      <h1>Register a Service Worker</h1>
+      <h6>The Gotcha - Scope.</h6>
+      <main class="slide-flex-column">
+        <pre><code>  navigator.serviceWorker.register('/sw.js')</code></pre>
+
+        <table>
+          <thead>
+            <th>Location</th>
+            <th>Scope</th>
+            <th>Matches</th>
+            <th>Description</th>
+          </thead>
+          <tbody>
+            <tr class="build">
+              <td>/sw.js</td>
+              <td>/</td>
+              <td>gauntface.com/*</td>
+              <td>Every page. Not subdomains.</td>
+            </tr>
+            <tr class="build">
+              <td>/blog/sw.js</td>
+              <td>/blog/</td>
+              <td>gauntface.com/blog/*</td>
+              <td>Wouldn't control gauntface.com</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </main>
+    </section>
+
+
+
+    <section id="slide-sw-diagram" class="slide js-slide">
+      <h1>Register a Service Worker</h1>
+      <h6>register()</h6>
+
+      <main>
+        <pre class="start"><code>if ('serviceWorker' in navigator) {</code></pre>
+<pre class="middle highlight"><code>  navigator.serviceWorker.register('/sw.js')</code></pre>
+<pre class="end dim"><code>    .then(function(registration) {
+      console.log('ServiceWorker registration successful');
+    })
+    .catch(function(err) {
+      console.log('ServiceWorker registration failed');
+    });
+}</code></pre>
+      </main>
+    </section>
+
+    <section id="slide-sw-diagram" class="slide js-slide">
+      <h1>Register a Service Worker</h1>
+      <h6>Promises</h6>
+
+      <main>
+        <pre class="start dim"><code>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js')</code></pre>
+<pre class="middle highlight"><code>    .then(function(registration) {</code></pre>
+<pre class="middle dim"><code>      console.log('ServiceWorker registration successful');
+    })</code></pre>
+<pre class="middle highlight"><code>    .catch(function(err) {</code></pre>
+<pre class="end dim"><code>      console.log('ServiceWorker registration failed');
+    });
+}</code></pre>
+      </main>
+    </section>
+
+    <section id="slide-sw-diagram" class="slide js-slide">
+      <h1>Register a Service Worker</h1>
+      <h6>register()</h6>
+
+      <main>
+        <pre><code>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js')
+    .then(function(registration) {
+      console.log('ServiceWorker registration successful');
+    })
+    .catch(function(err) {
+      console.log('ServiceWorker registration failed');
+    });
+}</code></pre>
+      </main>
+    </section>
+
+    <section id="slide-sw-diagram" class="slide js-slide">
+      <h1>Register a Service Worker</h1>
+      <h6>register() == Link Made</h6>
+
+      <main class="slide-flex-row">
+        <div class="left">
+          <h1>Your Web Page</h1>
+          <img src="images/sw-diagram-webpage-icons.svg" />
+        </div>
+        <div class="center chrome-logo highlight">
+          <img src="images/link-icon-plain.svg" />
+        </div>
+        <div class="right">
+          <h1>Your Service Worker</h1>
+          <img src="images/sw-diagram-sw-icons.svg" />
+        </div>
+      </main>
+    </section>
+
+    <section class="slide js-slide">
       <h1>Push</h1>
     </section>
 
-    <section class="gf-slide js-gf-slide">
+    <section class="slide js-slide">
       <h1>Web App Manifest</h1>
     </section>
 
 
 
-    <section class="gf-slide js-gf-slide">
+    <section class="slide js-slide">
       <h1>Outro</h1>
     </section>
 

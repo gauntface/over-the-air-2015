@@ -1,0 +1,49 @@
+.slide pre {
+  margin: 0;
+
+  margin-left: -$slide-horizontal-padding;
+  margin-right: -$slide-horizontal-padding;
+  margin-bottom: $base-line;
+
+  padding: ($base-line * 2) 0;
+  box-sizing: border-box;
+
+  background-color: $code-dark-bg-color;
+
+  font-size: 32px;
+  line-height: 40px;
+
+  &.start {
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  &.middle {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  &.end {
+    padding-top: 0;
+  }
+
+  code {
+    padding: 0 $slide-horizontal-padding;
+    box-sizing: border-box;
+  }
+
+  &.highlight {
+    code {
+      padding-top: $base-line / 4;
+      padding-bottom: $base-line / 4;
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+  }
+
+  &.dim {
+    code {
+      opacity: 0.4;
+    }
+  }
+}

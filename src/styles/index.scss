@@ -3,7 +3,13 @@
 
 @import "partials/base_critical";
 @import "partials/base_typography";
+@import "partials/base_code";
+@import "partials/utils";
 
-@import "partials/slides/gf-slide-hello";
+@import "partials/slides/slide-title";
+@import "partials/slides/slide-intro";
+@import "partials/slides/slide-hello";
+@import "partials/slides/slide-new-apis";
+@import "partials/slides/slide-sw-diagram";
 
 @import "components/slide/slide_inline";

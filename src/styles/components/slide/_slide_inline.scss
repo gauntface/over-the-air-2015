@@ -1,14 +1,52 @@
-.gf-slide {
+.slide {
   display: none;
   width: 100%;
   height: 100%;
 
-  padding: ($base-line * 4) ($base-line * 3);
+  padding: $slide-vertical-padding $slide-horizontal-padding;
   box-sizing: border-box;
 
   background-color: $gf-slide-bg-color;
 }
 
-.gf-slide.is-visible {
-  display: inline-block;
+.slide.is-visible {
+  display: inline-flex;
+
+  flex-direction: column;
+}
+
+.slide-flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.slide-flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.slide-spacer {
+  flex: 1;
+}
+
+.slide > main {
+  margin-top: auto;
+  margin-bottom: auto;
+
+  padding-top: $base-line;
+
+  &.slide-flex-column, &.slide-flex-row {
+    margin-top: 0;
+    margin-bottom: 0;
+
+    flex: 1;
+  }
+}
+
+.slide .build {
+  visibility: hidden;
+
+  &.is-built {
+    visibility: visible;
+  }
 }

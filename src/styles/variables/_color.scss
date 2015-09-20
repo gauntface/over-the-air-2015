@@ -1,7 +1,12 @@
-$page-bg-color:       #1E1621 !default;
-$gf-slide-bg-color:   #EDEDEB !default;
+$page-bg-color:         #1E1621 !default;
+$gf-slide-bg-color:     #EDEDEB !default;
+$title-slide-bg-color:  #1E1621 !default;
 
-$title-color: 			  #333333 !default;
-$font-color: 			    #333333 !default;
-$link-text-color:     inherit;
-$light-text-color:     $gf-slide-bg-color !default;
+$title-color: 			    #333333 !default;
+$font-color: 			      #333333 !default;
+$link-text-color:       inherit;
+$light-text-color:      $gf-slide-bg-color !default;
+
+$thead-bg-color:        $title-color !default;
+
+$code-dark-bg-color:    $title-color !default;

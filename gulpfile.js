@@ -4,6 +4,7 @@
 var gulp = require('gulp');
 var runSequence = require('run-sequence');
 var browserSync = require('browser-sync');
+var watch = require('gulp-watch');
 
 // Load custom tasks from the `tasks` directory
 // This must be defined AFTER the GLOBAL.config
@@ -22,13 +23,31 @@ gulp.task('watch', function() {
     open: false,
   });
 
-  gulp.watch('./src/**/*.scss', ['styles']).on('change', browserSync.reload);
-  gulp.watch('./src/*.*', ['root']).on('change', browserSync.reload);
-  gulp.watch('./src/**/*.html', ['html']).on('change', browserSync.reload);
-  gulp.watch('./src/images/**/*.*', ['images:dev'])
-    .on('change', browserSync.reload);
-  gulp.watch('./src/scripts/**/*.js', ['scripts:dev'])
-    .on('change', browserSync.reload);
+  watch('./src/**/*.scss', function() {
+    gulp.start('styles', function() {
+      browserSync.reload();
+    });
+  });
+  watch('./src/*.*', function() {
+    gulp.start('root', function() {
+      browserSync.reload();
+    });
+  });
+  watch('./src/**/*.html', function() {
+    gulp.start('html', function() {
+      browserSync.reload();
+    });
+  });
+  watch('./src/images/**/*.*', function() {
+    gulp.start('images:dev', function() {
+      browserSync.reload();
+    });
+  });
+  watch('./src/scripts/**/*.js', function() {
+    gulp.start('scripts:dev', function() {
+      browserSync.reload();
+    });
+  });
   //gulp.watch('./src/third_party/**/*.*', ['third_party']);
   //gulp.watch('./src/scripts/sw.js', ['serviceworker']);
 });

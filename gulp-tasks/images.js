@@ -15,6 +15,8 @@
  * limitations under the License.
  */
 
+'use strict';
+
 var utils = require('./utils');
 var config = utils.getConfig('images', 'images');
 
@@ -28,9 +30,9 @@ function getGlobExtensionString(extensions) {
   }
 
   var globString = '{';
-  for(var i = 0; i < extensions.length; i++) {
+  for (var i = 0; i < extensions.length; i++) {
     globString += extensions[i];
-    if( i + 1 < extensions.length) {
+    if (i + 1 < extensions.length) {
       globString += ',';
     }
   }
@@ -53,7 +55,7 @@ gulp.task('images:clean', function(cb) {
 gulp.task('images:dev', ['images:clean'], function() {
   return gulp.src(config.src + '/**/*.' + imageFormatGlobString)
      .pipe(gulp.dest(config.dest));
- });
+});
 
 gulp.task('images:prod', ['images:clean'], function() {
   return gulp.src(config.src + '/**/*.' + imageFormatGlobString)

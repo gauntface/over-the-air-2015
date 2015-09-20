@@ -1,0 +1,87 @@
+$chrome-logo-size: $base-line * 8;
+$chrome-logo-z-index: 99;
+
+#slide-sw-diagram {
+  & > main {
+    position: relative;
+
+    margin-top: 0;
+    margin-bottom: 0;
+
+    flex: 1;
+  }
+
+  .left, .right {
+    position: relative;
+
+    width: 0;
+
+    flex: 1;
+
+    padding: ($base-line * 2) $base-line;
+    box-sizing: border-box;
+
+    text-align: center;
+
+    img {
+      position: absolute;
+
+      $img-width: 360px;
+      $img-height: 220px;
+
+      width: $img-width;
+      height: $img-height;
+
+      left: 50%;
+      top: 50%;
+
+      margin-top: -($img-height / 2);
+      margin-left: -($img-width / 2);
+    }
+
+    &.invisible {
+      background-color: transparent;
+
+      * {
+        display :none;
+      }
+    }
+
+    &.dim {
+      opacity: 0.1;
+    }
+  }
+
+  .left {
+    background-color: rgba(0,0,0, 0.8);
+    color: $light-text-color;
+  }
+
+  .right {
+    background-color: rgba(0,0,0, 0.1);
+  }
+
+  .chrome-logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    width: $chrome-logo-size;
+    height: $chrome-logo-size;
+
+    margin-left: -($chrome-logo-size / 2);
+    margin-top: -($chrome-logo-size / 2);
+
+    z-index: $chrome-logo-z-index;
+
+    img {
+      width: $chrome-logo-size;
+      height: $chrome-logo-size;
+    }
+
+    &.highlight {
+      background-color: rgba(#1E1621, 0.9);
+      border-radius: 100%;
+    }
+  }
+}

@@ -11,10 +11,14 @@ export default class BaseController {
     this.setInitialSlide();
 
     this.addKeyPressListeners();
+
+    if (window.hljs) {
+      window.hljs.initHighlightingOnLoad();
+    }
   }
 
   constructSlideViews() {
-    var slideElements = document.querySelectorAll('.js-gf-slide');
+    var slideElements = document.querySelectorAll('.js-slide');
     for (var i = 0; i < slideElements.length; i++) {
       this.addSlideView(new SlideView(slideElements.item(i)));
     }
@@ -33,7 +37,7 @@ export default class BaseController {
           // 38: Up
           // 39: Right
           // 34: Page Down (Remote Control Right)
-          this.nextSlide();
+          this.nextStep();
           break;
         case 40:
         case 37:
@@ -41,7 +45,7 @@ export default class BaseController {
           // 40: Down
           // 37: Left
           // 33: Page Up (Remote Control Left)
-          this.prevSlide();
+          this.prevStep();
           break;
         default:
           console.log('Unknown key press: ', event);
@@ -58,6 +62,18 @@ export default class BaseController {
     }
 
     this.changeSlide(number);
+  }
+
+  nextStep() {
+    if (!this.slideViews[this.currentSlide].performNextStep()) {
+      this.nextSlide();
+    }
+  }
+
+  prevStep() {
+    if (!this.slideViews[this.currentSlide].performPrevStep()) {
+      this.prevSlide();
+    }
   }
 
   nextSlide() {

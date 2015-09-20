@@ -27,3 +27,41 @@ body {
 
   overflow-wrap: break-word;
 }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table, td {
+  border: 1px solid $thead-bg-color;
+}
+
+th {
+  border: 1px solid rgba($light-text-color, 0.1);
+  border-top-color: $thead-bg-color;
+  border-left-color: $thead-bg-color;
+
+  font-size: 48px;
+  line-height: 54px;
+
+  &:last-child {
+    border-right-color: $thead-bg-color;
+  }
+}
+
+thead {
+  color: $light-text-color;
+  background-color: $thead-bg-color;
+}
+
+th, td {
+  padding: $base-line / 2;
+  text-align: left;
+}
+
+.slide {
+  .hljs {
+    background-color: transparent;
+  }
+}
