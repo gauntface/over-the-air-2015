@@ -1,0 +1,75 @@
+@import "../variables/fonts";
+@import "../mixins/typography";
+
+@font-face {
+  font-family: 'adam.cg_proregular';
+  src: url('/fonts/adam.cg_pro/adam.cg_pro-webfont.eot');
+  src: url('/fonts/adam.cg_pro/adam.cg_pro-webfont.eot?#iefix') format('embedded-opentype'),
+       url('/fonts/adam.cg_pro/adam.cg_pro-webfont.woff2') format('woff2'),
+       url('/fonts/adam.cg_pro/adam.cg_pro-webfont.woff') format('woff'),
+       url('/fonts/adam.cg_pro/adam.cg_pro-webfont.ttf') format('truetype'),
+       url('/fonts/adam.cg_pro/adam.cg_pro-webfont.svg#adam.cg_proregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-size: $base-font-size;
+  line-height: $base-line;
+  font-family: $base-font-family;
+  color: $font-color;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin-top: 0;
+  margin-bottom: $base-line * 0.5;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $title-font-family;
+  font-weight: normal;
+}
+
+h1 {
+    @include typography-font-size($font-size-h1);
+}
+
+h2 {
+    @include typography-font-size($font-size-h2);
+}
+
+h3 {
+    @include typography-font-size($font-size-h3);
+}
+
+h4 {
+    @include typography-font-size($font-size-h4);
+}
+
+h5 {
+    @include typography-font-size($font-size-h5);
+}
+
+h6 {
+    @include typography-font-size($font-size-h6);
+}
+
+p {
+  word-wrap: break-word;
+}
+
+a {
+  color: $link-text-color;
+
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}

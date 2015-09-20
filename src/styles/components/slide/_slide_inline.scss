@@ -1,0 +1,14 @@
+.gf-slide {
+  display: none;
+  width: 100%;
+  height: 100%;
+
+  padding: ($base-line * 4) ($base-line * 3);
+  box-sizing: border-box;
+
+  background-color: $gf-slide-bg-color;
+}
+
+.gf-slide.is-visible {
+  display: inline-block;
+}
