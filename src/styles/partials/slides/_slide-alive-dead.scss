@@ -1,0 +1,29 @@
+.slide-alive-dead {
+  .alive, .dead {
+    display: none;
+
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top:0;
+    left: 0;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+      font-size: 160px;
+    }
+  }
+
+  .alive.is-visible, .dead.is-visible {
+    display: flex;
+  }
+
+  .dead {
+    background-color: $title-slide-bg-color;
+    color: $light-text-color;
+  }
+}

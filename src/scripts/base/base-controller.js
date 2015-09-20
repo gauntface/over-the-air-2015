@@ -1,6 +1,7 @@
 'use strict';
 
 import SlideView from '../views/slide-view';
+import AliveDeadSlideView from '../views/alive-dead-slide-view';
 
 export default class BaseController {
   constructor() {
@@ -20,7 +21,11 @@ export default class BaseController {
   constructSlideViews() {
     var slideElements = document.querySelectorAll('.js-slide');
     for (var i = 0; i < slideElements.length; i++) {
-      this.addSlideView(new SlideView(slideElements.item(i)));
+      if (slideElements.item(i).classList.contains('js-slide-alive-dead')) {
+        this.addSlideView(new AliveDeadSlideView(slideElements.item(i)));
+      } else {
+        this.addSlideView(new SlideView(slideElements.item(i)));
+      }
     }
   }
 

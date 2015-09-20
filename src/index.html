@@ -314,6 +314,277 @@
     </section>
 
     <section class="slide js-slide">
+      <h1>Service Worker File</h1>
+      <h6>JavaScript &lt;3</h6>
+
+      <main>
+        <pre><code>self.addEventListener('install', function(event) {});
+
+self.addEventListener('activate', function(event) {});
+
+self.addEventListener('fetch', function(event) {});
+
+// Push Events Here</code></pre>
+      </main>
+    </section>
+
+    <section class="slide js-slide">
+      <h1>Install Event</h1>
+      <h6>Pre-Cache Things Here</h6>
+
+      <main>
+        <pre><code>
+var CACHE_NAME = 'my-site-cache-v1';
+var urlsToCache = ['/', '/main.css', '/main.js'];
+
+self.addEventListener('install', function(event) {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(function(cache) {
+        return cache.addAll(urlsToCache);
+      })
+  );
+});</code></pre>
+      </main>
+    </section>
+
+    <section class="slide js-slide">
+      <h1>Install Event</h1>
+      <h6>Pre-Cache Things Here</h6>
+
+      <main>
+        <pre class="start dim"><code>
+var CACHE_NAME = 'my-site-cache-v1';
+var urlsToCache = ['/', '/main.css', '/main.js'];
+</code></pre>
+<pre class="middle highlight"><code>self.addEventListener('install', function(event) {</code></pre>
+<pre class="end dim"><code>  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(function(cache) {
+        return cache.addAll(urlsToCache);
+      })
+  );
+});</code></pre>
+      </main>
+    </section>
+
+    <section class="slide js-slide">
+      <h1>Install Event</h1>
+      <h6>Pre-Cache Things Here</h6>
+
+      <main>
+        <pre class="start dim"><code>
+var CACHE_NAME = 'my-site-cache-v1';
+var urlsToCache = ['/', '/main.css', '/main.js'];
+
+self.addEventListener('install', </code></pre><pre class="middle highlight"><code>function(event) {
+  event.waitUntil(</code></pre>
+<pre class="end dim"><code>    caches.open(CACHE_NAME)
+      .then(function(cache) {
+        return cache.addAll(urlsToCache);
+      })
+  );
+});</code></pre>
+      </main>
+    </section>
+
+    <section class="slide slide-alive-dead js-slide js-slide-alive-dead">
+      <h1>The Browser Decides.</h1>
+      <h6>Alive, Dead, Alive, Dead</h6>
+
+      <div class="alive js-alive">
+        <h1>Alive</h1>
+      </div>
+
+      <div class="dead js-dead">
+        <h1>Dead</h1>
+      </div>
+    </section>
+
+    <section class="slide slide-alive-dead js-slide">
+      <div class="alive is-visible">
+        <h1>Alive</h1>
+        <h2>event.waitUntil()</h2>
+      </div>
+    </section>
+
+    <section class="slide slide-alive-dead js-slide js-slide-alive-dead">
+      <h1>The Browser Decides.</h1>
+      <h6>Alive, Dead, Alive, Dead</h6>
+
+      <div class="alive js-alive">
+        <h1>Alive</h1>
+      </div>
+
+      <div class="dead js-dead">
+        <h1>Dead</h1>
+      </div>
+    </section>
+
+    <section class="slide js-slide">
+      <h1>Install Event</h1>
+      <h6>Pre-Cache Things Here</h6>
+
+      <main>
+        <pre class="start dim"><code>
+var CACHE_NAME = 'my-site-cache-v1';
+var urlsToCache = ['/', '/main.css', '/main.js'];
+
+self.addEventListener('install', function(event) {
+  event.waitUntil(</code></pre>
+<pre class="middle highlight"><code>    caches.open(CACHE_NAME)
+      .then(function(cache) {
+        return cache.addAll(urlsToCache);
+      })</code></pre>
+<pre class="end dim"><code>  );
+});</code></pre>
+      </main>
+    </section>
+
+    <section class="slide js-slide">
+      <h1>Install Event</h1>
+      <h6>Pre-Cache Things Here</h6>
+
+      <main>
+        <pre><code>
+var CACHE_NAME = 'my-site-cache-v1';
+var urlsToCache = ['/', '/main.css', '/main.js'];
+
+self.addEventListener('install', function(event) {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(function(cache) {
+        return cache.addAll(urlsToCache);
+      })
+  );
+});</code></pre>
+      </main>
+    </section>
+
+    <section class="slide js-slide">
+      <h1>Fetch Event</h1>
+      <h6>Get From Cache or Fetch</h6>
+
+      <main>
+        <pre><code>
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    ...
+  );
+});</code></pre>
+      </main>
+    </section>
+
+    <section class="slide js-slide">
+      <h1>Fetch Event</h1>
+      <h6>Get From Cache or Fetch</h6>
+
+      <main>
+        <pre class="start dim"><code>
+...</code></pre>
+<pre class="middle highlight"><code>caches.match(event.request)</code></pre>
+<pre class="end dim"><code>  .then(function(response) {
+    // Cache hit - return response
+    if (response) {
+      return response;
+    }
+
+    return fetch(event.request);
+  })
+...
+</code></pre>
+      </main>
+    </section>
+
+
+    <section class="slide js-slide">
+      <h1>Fetch Event</h1>
+      <h6>Get From Cache or Fetch</h6>
+
+      <main>
+        <pre class="start dim"><code>
+...</code></pre>
+<pre class="middle highlight"><code>caches.match(event.request)</code></pre>
+<pre class="end dim"><code>  .then(function(response) {
+    // Cache hit - return response
+    if (response) {
+      return response;
+    }
+
+    return fetch(event.request);
+  })
+...
+</code></pre>
+      </main>
+    </section>
+
+    <section class="slide js-slide">
+      <h1>Fetch Event</h1>
+      <h6>Get From Cache or Fetch</h6>
+
+      <main>
+        <pre class="start dim"><code>
+...
+caches.match(event.request)</code></pre>
+<pre class="middle highlight"><code>  .then(function(response) {
+    // Cache hit - return response
+    if (response) {
+      return response;
+    }
+
+    return fetch(event.request);
+  })</code></pre>
+<pre class="end dim"><code>...
+</code></pre>
+      </main>
+    </section>
+
+    <section class="slide js-slide">
+      <h1>Fetch Event</h1>
+      <h6>Get From Cache or Fetch</h6>
+
+      <main>
+        <pre><code>
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request)
+      .then(function(response) {
+        if (response) {
+          return response;
+        }
+
+        return fetch(event.request);
+      }
+  );
+});</code></pre>
+      </main>
+    </section>
+
+    <section class="slide js-slide">
+      <h1>Fetch Event</h1>
+      <h6>Get From Cache or Fetch</h6>
+
+      <main>
+        <pre><code>var fetchRequest = event.request.clone();
+
+return fetch(fetchRequest)
+  .then(function(response) {
+    if(!response || response.status !== 200) {
+      return response;
+    }
+
+    var responseToCache = response.clone();
+    caches.open(CACHE_NAME)
+      .then(function(cache) {
+        cache.put(event.request, responseToCache);
+      });
+
+    return response;
+  }</code></pre>
+      </main>
+    </section>
+
+    <section class="slide js-slide">
       <h1>Push</h1>
     </section>
 
@@ -325,6 +596,8 @@
 
     <section class="slide js-slide">
       <h1>Outro</h1>
+      <p>Link to Slides</p>
+      <p>Link to Promises Guide</p>
     </section>
 
     <script src="scripts/main.js" async></script>
