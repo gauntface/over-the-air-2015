@@ -1,0 +1,85 @@
+$state-btn: 150px;
+.slide-lifecycle {
+
+  .left {
+    width: 0;
+    flex: 1;
+  }
+
+  .left-top {
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .right {
+    width: 0;
+    flex: 1;
+
+    align-items: center;
+  }
+
+  .bottom {
+    width: 100%;
+    justify-content: space-around;
+  }
+
+  .state {
+    position: relative;
+
+    width: $state-btn;
+    height: $state-btn;
+
+    color: $light-text-color;
+    font-size: $base-line;
+
+    border-radius: 100%;
+
+    line-height: $state-btn;
+
+    text-align: center;
+
+    background-color: $hot-pink;
+  }
+
+  .state.event {
+    background-color: $light-blue;
+  }
+
+  .state.other {
+    position: relative;
+
+    &:after {
+      content: '';
+      display: block;
+
+      width: 48px;
+      height: 48px;
+
+      position: absolute;
+      top: -12px;
+      right: -12px;
+
+      background-image: url('../images/right-arrow.svg');
+      transform: rotate(135deg);
+    }
+  }
+
+  .state.terminated {
+    position: relative;
+
+    &:after {
+      content: '';
+      display: block;
+
+      width: 48px;
+      height: 48px;
+
+      position: absolute;
+      top: -12px;
+      left: -12px;
+
+      background-image: url('../images/right-arrow.svg');
+      transform: rotate(45deg);
+    }
+  }
+}

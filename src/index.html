@@ -43,19 +43,128 @@
       <h1 class="slide-top-end">New Standards</h1>
       <main class="slide-flex-column">
         <div class="slide-spacer"></div>
-        <h3>Service Worker</h3>
+        <h4 class="build">- Service Worker</h4>
         <div class="slide-spacer"></div>
-        <h3>Push Messaging</h3>
+        <h4 class="build">- Push Messaging</h4>
         <div class="slide-spacer"></div>
-        <h3>Web App Manifest</h3>
+        <h4 class="build">- Web App Manifest</h4>
         <div class="slide-spacer"></div>
       </main>
     </section>
 
     <section class="slide js-slide slide-title">
       <main>
+        <h1>First! Promises</h1>
+        <h6>ES2015 FTW</h6>
+      </main>
+    </section>
+
+    <section id="slide-sw-diagram" class="slide js-slide">
+      <h1>Promises?</h1>
+      <h6>The Innards</h6>
+
+      <main>
+        <pre><code>
+new Promise(function(resolve, reject) {
+
+  // Do Something Async Here
+
+  resolve(data);
+});
+        </code></pre>
+      </main>
+    </section>
+
+    <section id="slide-sw-diagram" class="slide js-slide">
+      <h1>Promises?</h1>
+      <h6>Basic Use</h6>
+
+      <main>
+        <pre><code>
+fetch('https://gauntface.com')
+    .then(function(response){
+      // Do something with response
+    })
+    .catch(function(err){
+      // Oops
+    })
+        </code></pre>
+      </main>
+    </section>
+
+    <section id="slide-sw-diagram" class="slide js-slide">
+      <h1>Promises?</h1>
+      <h6>Chain em together.</h6>
+
+      <main>
+        <pre><code>
+fetch('https://gauntface.com/lolzFeed.json')
+    .then(function(response){
+      return response.json();
+    })
+    .then(function(responseObj){
+      console.log(responseObj.lolz[0].joke);
+    })
+        </code></pre>
+      </main>
+    </section>
+
+    <section id="slide-sw-diagram" class="slide js-slide">
+      <h1>Promises?</h1>
+      <h6>Chain em together.</h6>
+
+      <main>
+        <pre class="start dim"><code>
+fetch('https://gauntface.com/lolzFeed.json')
+    .then(function(response){</code></pre>
+<pre class="middle highlight"><code>      return response.json();</code></pre>
+<pre class="end dim"><code>    })
+    .then(function(responseObj){
+      console.log(responseObj.lolz[0].joke);
+    })
+        </code></pre>
+      </main>
+    </section>
+
+    <section id="slide-sw-diagram" class="slide js-slide">
+      <h1>Promises?</h1>
+      <h6>Chain em together.</h6>
+
+      <main>
+        <pre class="start dim"><code>
+fetch('https://gauntface.com/lolzFeed.json')
+    .then(function(response){
+      return response.json();
+    })</code></pre>
+<pre class="middle highlight"><code>    .then(function(responseObj){</code></pre>
+<pre class="end dim"><code>      console.log(responseObj.lolz[0].joke);
+    })
+        </code></pre>
+      </main>
+    </section>
+
+    <section id="slide-sw-diagram" class="slide js-slide">
+      <h1>Promises?</h1>
+      <h6>Chain em together.</h6>
+
+      <main>
+        <pre><code>
+fetch('users.json')
+  .then(status)
+  .then(json)
+  .then(function(json) {
+    log('Success!', json);
+  }).catch(function(error) {
+    log('Request failed', error);
+  });
+        </code></pre>
+      </main>
+    </section>
+
+    <section class="slide js-slide slide-title">
+      <main>
         <h1>What are Service Workers?</h1>
-        <h6>Deep Breath</h6>
+        <h6>Citin'</h6>
       </main>
     </section>
 
@@ -178,34 +287,9 @@
 
     <section id="slide-sw-diagram" class="slide js-slide">
       <h1>Register a Service Worker</h1>
-      <h6>Progressive Enhancement Check.</h6>
-
-      <main>
-        <pre class="start highlight"><code>if ('serviceWorker' in navigator) {</code></pre>
-<pre class="end dim"><code>  navigator.serviceWorker.register('/sw.js')
-    .then(function(registration) {
-      console.log('ServiceWorker registration successful');
-    })
-    .catch(function(err) {
-      console.log('ServiceWorker registration failed');
-    });
-}</code></pre>
-      </main>
-    </section>
-
-    <section id="slide-sw-diagram" class="slide js-slide">
-      <h1>Register a Service Worker</h1>
       <h6>register()</h6>
       <main>
-        <pre class="start"><code>if ('serviceWorker' in navigator) {</code></pre>
-<pre class="middle highlight"><code>  navigator.serviceWorker.register('/sw.js')</code></pre>
-<pre class="end dim"><code>    .then(function(registration) {
-      console.log('ServiceWorker registration successful');
-    })
-    .catch(function(err) {
-      console.log('ServiceWorker registration failed');
-    });
-}</code></pre>
+<pre><code>  navigator.serviceWorker.register('/sw.js')</code></pre>
       </main>
     </section>
 
@@ -213,7 +297,7 @@
       <h1>Register a Service Worker</h1>
       <h6>The Gotcha - Scope.</h6>
       <main class="slide-flex-column">
-        <pre><code>  navigator.serviceWorker.register('/sw.js')</code></pre>
+        <pre><code> navigator.serviceWorker.register('...')</code></pre>
 
         <table>
           <thead>
@@ -242,55 +326,18 @@
     </section>
 
 
-
-    <section id="slide-sw-diagram" class="slide js-slide">
-      <h1>Register a Service Worker</h1>
-      <h6>register()</h6>
-
-      <main>
-        <pre class="start"><code>if ('serviceWorker' in navigator) {</code></pre>
-<pre class="middle highlight"><code>  navigator.serviceWorker.register('/sw.js')</code></pre>
-<pre class="end dim"><code>    .then(function(registration) {
-      console.log('ServiceWorker registration successful');
-    })
-    .catch(function(err) {
-      console.log('ServiceWorker registration failed');
-    });
-}</code></pre>
-      </main>
-    </section>
-
     <section id="slide-sw-diagram" class="slide js-slide">
       <h1>Register a Service Worker</h1>
       <h6>Promises</h6>
 
       <main>
-        <pre class="start dim"><code>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js')</code></pre>
-<pre class="middle highlight"><code>    .then(function(registration) {</code></pre>
-<pre class="middle dim"><code>      console.log('ServiceWorker registration successful');
-    })</code></pre>
-<pre class="middle highlight"><code>    .catch(function(err) {</code></pre>
-<pre class="end dim"><code>      console.log('ServiceWorker registration failed');
-    });
-}</code></pre>
-      </main>
-    </section>
-
-    <section id="slide-sw-diagram" class="slide js-slide">
-      <h1>Register a Service Worker</h1>
-      <h6>register()</h6>
-
-      <main>
-        <pre><code>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js')
-    .then(function(registration) {
-      console.log('ServiceWorker registration successful');
-    })
-    .catch(function(err) {
-      console.log('ServiceWorker registration failed');
-    });
-}</code></pre>
+        <pre><code>navigator.serviceWorker.register('/sw.js')
+  .then(function(registration) {
+    console.log('Registered!');
+  })
+  .catch(function(err) {
+    console.log('WHAT!!', err);
+  });</code></pre>
       </main>
     </section>
 
@@ -313,38 +360,57 @@
       </main>
     </section>
 
+    <section class="slide js-slide slide-lifecycle">
+      <h1>Service Worker Lifecycle</h1>
+      <h6>Such Lifecycle. Many States. So Service Worker.</h6>
+
+      <main>
+        <div class="slide-flex-row">
+          <div class="left">
+            <div class="left-top slide-flex-row">
+              <div class="state event">Installing</div>
+              <div class="build">
+                <img src="images/right-arrow.svg" alt="Right arrow" />
+              </div>
+              <div class="state event build">Activating</div>
+              <div class="build">
+                <img src="images/right-arrow.svg" alt="Right arrow" />
+              </div>
+            </div>
+          </div>
+          <div class="right slide-flex-column">
+            <div class="state build">Idle</div>
+            <div class="slide-flex-row bottom">
+              <div class="state event build other">...</div>
+              <div class="state build terminated">Terminate</div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </section>
+
     <section class="slide js-slide">
       <h1>Service Worker File</h1>
       <h6>JavaScript &lt;3</h6>
 
       <main>
-        <pre><code>self.addEventListener('install', function(event) {});
+        <pre><code>self.addEventListener('install',
+  function(event) {});
 
-self.addEventListener('activate', function(event) {});
+self.addEventListener('activate',
+  function(event) {});
 
-self.addEventListener('fetch', function(event) {});
+self.addEventListener('fetch',
+  function(event) {});
 
 // Push Events Here</code></pre>
       </main>
     </section>
 
-    <section class="slide js-slide">
-      <h1>Install Event</h1>
-      <h6>Pre-Cache Things Here</h6>
-
+    <section class="slide js-slide slide-title">
       <main>
-        <pre><code>
-var CACHE_NAME = 'my-site-cache-v1';
-var urlsToCache = ['/', '/main.css', '/main.js'];
-
-self.addEventListener('install', function(event) {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(function(cache) {
-        return cache.addAll(urlsToCache);
-      })
-  );
-});</code></pre>
+        <h6>Event 1.</h6>
+        <h1>Install in Service Worker</h1>
       </main>
     </section>
 
@@ -353,18 +419,38 @@ self.addEventListener('install', function(event) {
       <h6>Pre-Cache Things Here</h6>
 
       <main>
-        <pre class="start dim"><code>
-var CACHE_NAME = 'my-site-cache-v1';
-var urlsToCache = ['/', '/main.css', '/main.js'];
+        <pre><code>var CACHE_NAME = 'my-site-cache-v1';
+var urlsToCache = ['/', '/main.css', ...];
+
+self.addEventListener('install',
+  function(event) {
+    event.waitUntil(
+      caches.open(CACHE_NAME)
+        .then(function(cache) {
+          return cache.addAll(urlsToCache);
+        })
+    );
+  });</code></pre>
+      </main>
+    </section>
+
+    <section class="slide js-slide">
+      <h1>Install Event</h1>
+      <h6>Pre-Cache Things Here</h6>
+
+      <main>
+        <pre class="start dim"><code>var CACHE_NAME = 'my-site-cache-v1';
+var urlsToCache = ['/', '/main.css', ...];
 </code></pre>
-<pre class="middle highlight"><code>self.addEventListener('install', function(event) {</code></pre>
-<pre class="end dim"><code>  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(function(cache) {
-        return cache.addAll(urlsToCache);
-      })
-  );
-});</code></pre>
+<pre class="middle highlight"><code>self.addEventListener('install',
+  function(event) {</code></pre>
+<pre class="end dim"><code>    event.waitUntil(
+      caches.open(CACHE_NAME)
+        .then(function(cache) {
+          return cache.addAll(urlsToCache);
+        })
+    );
+  });</code></pre>
       </main>
     </section>
 
@@ -373,18 +459,18 @@ var urlsToCache = ['/', '/main.css', '/main.js'];
       <h6>Pre-Cache Things Here</h6>
 
       <main>
-        <pre class="start dim"><code>
-var CACHE_NAME = 'my-site-cache-v1';
-var urlsToCache = ['/', '/main.css', '/main.js'];
+        <pre class="start dim"><code>var CACHE_NAME = 'my-site-cache-v1';
+var urlsToCache = ['/', '/main.css', ...];
 
-self.addEventListener('install', </code></pre><pre class="middle highlight"><code>function(event) {
-  event.waitUntil(</code></pre>
-<pre class="end dim"><code>    caches.open(CACHE_NAME)
-      .then(function(cache) {
-        return cache.addAll(urlsToCache);
-      })
-  );
-});</code></pre>
+self.addEventListener('install',
+  function(event) {</code></pre>
+<pre class="middle highlight"><code>    event.waitUntil(</code></pre>
+<pre class="end dim"><code>      caches.open(CACHE_NAME)
+        .then(function(cache) {
+          return cache.addAll(urlsToCache);
+        })
+    );
+  });</code></pre>
       </main>
     </section>
 
@@ -402,6 +488,9 @@ self.addEventListener('install', </code></pre><pre class="middle highlight"><cod
     </section>
 
     <section class="slide slide-alive-dead js-slide">
+      <h1>The Browser Decides.</h1>
+      <h6>Alive, Dead, Alive, Dead</h6>
+
       <div class="alive is-visible">
         <h1>Alive</h1>
         <h2>event.waitUntil()</h2>
@@ -412,13 +501,14 @@ self.addEventListener('install', </code></pre><pre class="middle highlight"><cod
       <h1>The Browser Decides.</h1>
       <h6>Alive, Dead, Alive, Dead</h6>
 
+      <div class="dead js-dead">
+        <h1>Dead</h1>
+      </div>
+
       <div class="alive js-alive">
         <h1>Alive</h1>
       </div>
 
-      <div class="dead js-dead">
-        <h1>Dead</h1>
-      </div>
     </section>
 
     <section class="slide js-slide">
@@ -426,18 +516,18 @@ self.addEventListener('install', </code></pre><pre class="middle highlight"><cod
       <h6>Pre-Cache Things Here</h6>
 
       <main>
-        <pre class="start dim"><code>
-var CACHE_NAME = 'my-site-cache-v1';
-var urlsToCache = ['/', '/main.css', '/main.js'];
+        <pre class="start dim"><code>var CACHE_NAME = 'my-site-cache-v1';
+var urlsToCache = ['/', '/main.css', ...];
 
-self.addEventListener('install', function(event) {
-  event.waitUntil(</code></pre>
-<pre class="middle highlight"><code>    caches.open(CACHE_NAME)
-      .then(function(cache) {
-        return cache.addAll(urlsToCache);
-      })</code></pre>
-<pre class="end dim"><code>  );
-});</code></pre>
+self.addEventListener('install',
+  function(event) {</code></pre>
+<pre class="middle highlight"><code>    event.waitUntil(</code></pre>
+<pre class="end dim"><code>      caches.open(CACHE_NAME)
+        .then(function(cache) {
+          return cache.addAll(urlsToCache);
+        })
+    );
+  });</code></pre>
       </main>
     </section>
 
@@ -446,17 +536,58 @@ self.addEventListener('install', function(event) {
       <h6>Pre-Cache Things Here</h6>
 
       <main>
-        <pre><code>
-var CACHE_NAME = 'my-site-cache-v1';
-var urlsToCache = ['/', '/main.css', '/main.js'];
+        <pre class="start dim"><code>var CACHE_NAME = 'my-site-cache-v1';
+var urlsToCache = ['/', '/main.css', ...];
 
-self.addEventListener('install', function(event) {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(function(cache) {
-        return cache.addAll(urlsToCache);
-      })
-  );
+self.addEventListener('install',
+  function(event) {
+    event.waitUntil(</code></pre>
+<pre class="middle highlight"><code>      caches.open(CACHE_NAME)
+        .then(function(cache) {
+          return cache.addAll(urlsToCache);
+        })
+    );</code></pre>
+<pre class="end dim"><code>  });</code></pre>
+      </main>
+    </section>
+
+    <section class="slide js-slide">
+      <h1>Install Event</h1>
+      <h6>Be Warned...</h6>
+
+      <main>
+        <pre><code>var CACHE_NAME = 'my-site-cache-v1';
+var urlsToCache = ['/', '/main.css', ...];
+
+self.addEventListener('install',
+  function(event) {
+    event.waitUntil(
+      caches.open(CACHE_NAME)
+        .then(function(cache) {
+          return cache.addAll(urlsToCache);
+        })
+    );
+  });</code></pre>
+      </main>
+    </section>
+
+    <section class="slide js-slide slide-title">
+      <main>
+        <h6>Event 2.</h6>
+        <h1>Fetch in Service Worker</h1>
+      </main>
+    </section>
+
+    <section class="slide js-slide">
+      <h1>Fetch Event</h1>
+      <h6>Get From Cache or Fetch</h6>
+
+      <main>
+        <pre><code>self.addEventListener('fetch',
+  function(event) {
+    event.respondWith(
+      ...
+    );
 });</code></pre>
       </main>
     </section>
@@ -466,22 +597,7 @@ self.addEventListener('install', function(event) {
       <h6>Get From Cache or Fetch</h6>
 
       <main>
-        <pre><code>
-self.addEventListener('fetch', function(event) {
-  event.respondWith(
-    ...
-  );
-});</code></pre>
-      </main>
-    </section>
-
-    <section class="slide js-slide">
-      <h1>Fetch Event</h1>
-      <h6>Get From Cache or Fetch</h6>
-
-      <main>
-        <pre class="start dim"><code>
-...</code></pre>
+        <pre class="start dim"><code>...</code></pre>
 <pre class="middle highlight"><code>caches.match(event.request)</code></pre>
 <pre class="end dim"><code>  .then(function(response) {
     // Cache hit - return response
@@ -496,35 +612,12 @@ self.addEventListener('fetch', function(event) {
       </main>
     </section>
 
-
     <section class="slide js-slide">
       <h1>Fetch Event</h1>
       <h6>Get From Cache or Fetch</h6>
 
       <main>
-        <pre class="start dim"><code>
-...</code></pre>
-<pre class="middle highlight"><code>caches.match(event.request)</code></pre>
-<pre class="end dim"><code>  .then(function(response) {
-    // Cache hit - return response
-    if (response) {
-      return response;
-    }
-
-    return fetch(event.request);
-  })
-...
-</code></pre>
-      </main>
-    </section>
-
-    <section class="slide js-slide">
-      <h1>Fetch Event</h1>
-      <h6>Get From Cache or Fetch</h6>
-
-      <main>
-        <pre class="start dim"><code>
-...
+        <pre class="start dim"><code>...
 caches.match(event.request)</code></pre>
 <pre class="middle highlight"><code>  .then(function(response) {
     // Cache hit - return response
@@ -541,63 +634,183 @@ caches.match(event.request)</code></pre>
 
     <section class="slide js-slide">
       <h1>Fetch Event</h1>
-      <h6>Get From Cache or Fetch</h6>
-
-      <main>
-        <pre><code>
-self.addEventListener('fetch', function(event) {
-  event.respondWith(
-    caches.match(event.request)
-      .then(function(response) {
-        if (response) {
-          return response;
-        }
-
-        return fetch(event.request);
-      }
-  );
-});</code></pre>
-      </main>
-    </section>
-
-    <section class="slide js-slide">
-      <h1>Fetch Event</h1>
-      <h6>Get From Cache or Fetch</h6>
+      <h6>How would you cache the fetch response?</h6>
 
       <main>
         <pre><code>var fetchRequest = event.request.clone();
 
 return fetch(fetchRequest)
   .then(function(response) {
-    if(!response || response.status !== 200) {
-      return response;
-    }
-
-    var responseToCache = response.clone();
-    caches.open(CACHE_NAME)
-      .then(function(cache) {
-        cache.put(event.request, responseToCache);
-      });
-
-    return response;
-  }</code></pre>
+    ....
+  });</code></pre>
       </main>
     </section>
 
     <section class="slide js-slide">
-      <h1>Push</h1>
+      <h1>Fetch Event</h1>
+      <h6>How would you cache the fetch response?</h6>
+
+      <main>
+        <pre class="start dim"><code>fetch(fetchRequest)</code></pre>
+<pre class="end"><code>  .then(function(response) {
+    if(!response ||
+        response.status !== 200) {
+      // Bad Response
+      return response;
+    }
+    ...
+  });</code></pre>
+      </main>
     </section>
 
     <section class="slide js-slide">
-      <h1>Web App Manifest</h1>
+      <h1>Fetch Event</h1>
+      <h6>How would you cache the fetch response?</h6>
+
+      <main>
+        <pre class="start dim"><code>fetch(fetchRequest)
+  .then(function(response) {
+    ...</code></pre>
+<pre class="middle"><code>    var cacheResponse = response.clone();
+    caches.open(CACHE_NAME)
+      .then(function(cache) {
+        cache.put(event.request,
+          cacheResponse);
+      });
+
+    return response;</code></pre>
+<pre class="end dim"><code>  });</code></pre>
+      </main>
     </section>
 
+    <section id="slide-sw-diagram" class="slide js-slide">
+      <h1>Service Worker.</h1>
+      <h6>Progressive Enhancement Check.</h6>
 
+      <main>
+        <pre class="start highlight"><code>if ('serviceWorker' in navigator) {</code></pre>
+<pre class="end dim"><code>  navigator.serviceWorker.register('/sw.js');
+}</code></pre>
+      </main>
+    </section>
+
+    <section class="slide js-slide slide-title">
+      <main>
+        <h6>Event 3.</h6>
+        <h1>Activate in Service Worker</h1>
+      </main>
+    </section>
 
     <section class="slide js-slide">
-      <h1>Outro</h1>
+      <h1>Activate</h1>
+      <h6>Activate</h6>
+      <main>
+        <p>Old and New Service Worker.</p>
+      </main>
+    </section>
+
+    <section class="slide js-slide slide-title">
+      <main>
+        <h1>Debugging....</h1>
+        <h6>Brace yourselves.</h6>
+      </main>
+    </section>
+
+    <section class="slide js-slide">
+      <h1>Chrome Service-Worker Internals</h1>
+    </section>
+
+    <section class="slide js-slide">
+      <h1>Chrome Flags</h1>
+
+      <p>FF Flags</p>
+    </section>
+
+    <section class="slide js-slide">
+      <h1>Incognito</h1>
+
+
+    </section>
+
+    <section class="slide js-slide slide-title">
+      <main>
+        <h1>Push</h1>
+        <h6>Whoop Whoop.</h6>
+      </main>
+    </section>
+
+    <section class="slide js-slide">
+      <h1>Push Chrome &amp; Firefox</h1>
+    </section>
+
+    <section class="slide js-slide">
+      <h1>Flow</h1>
+
+      <p>SW &gt; Permission Check &gt; Subscribe &gt; Subscribed or Blocked </p>
+    </section>
+
+    <section class="slide js-slide">
+      <h1>Flow</h1>
+
+      <p>Subscription object.</p>
+    </section>
+
+    <section class="slide js-slide">
+      <h1>Flow</h1>
+
+      <p>Differences kick in....</p>
+    </section>
+
+    <section class="slide js-slide">
+      <h1>SW Event</h1>
+
+      <p></p>
+    </section>
+
+    <section class="slide js-slide">
+      <h1>notification click Event</h1>
+
+      <p></p>
+    </section>
+
+    <section class="slide js-slide">
+      <h1>Payload</h1>
+
+      <p></p>
+    </section>
+
+    <section class="slide js-slide slide-title">
+      <main>
+        <h1>Web App Manifest</h1>
+        <h6>The JSON File</h6>
+      </main>
+    </section>
+
+    <section class="slide js-slide">
+      <h1>Add to Homescreen</h1>
+
+      <p>SW, theme-color, short_name</p>
+    </section>
+
+    <section class="slide js-slide">
+      <h1>Loading Color</h1>
+
+      <p></p>
+    </section>
+
+    <section class="slide js-slide">
+      <h1>Add to Homescreen Banner</h1>
+
+      <p></p>
+    </section>
+
+    <section class="slide js-slide">
+      <h1>Cheers.</h1>
       <p>Link to Slides</p>
       <p>Link to Promises Guide</p>
+      <p>Link to Intro to SW</p>
+      <p>Link to Intro to Push</p>
+      <p>Link to Intro to BG Sync</p>
     </section>
 
     <script src="scripts/main.js" async></script>

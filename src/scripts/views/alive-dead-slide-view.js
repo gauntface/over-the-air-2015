@@ -16,13 +16,29 @@ export default class AliveDeadSlideView extends SlideView {
     this.deadElement.classList.remove('is-visible');
   }
 
+  performNextStep() {
+    if (!this.deadElement.classList.contains('is-visible')) {
+      this.aliveElement.classList.toggle('is-visible');
+      this.deadElement.classList.toggle('is-visible');
+      return true;
+    }
+
+    return false;
+  }
+
+  performPrevStep() {
+    if (this.deadElement.classList.contains('is-visible')) {
+      this.aliveElement.classList.toggle('is-visible');
+      this.deadElement.classList.toggle('is-visible');
+      return true;
+    }
+
+    return false;
+  }
+
   setVisibility(isVisible) {
     this.isAnimating = isVisible;
-    if (isVisible) {
-      this.startAnimation();
-    } else {
-      this.stopAnimation();
-    }
+
     super.setVisibility(isVisible);
   }
 

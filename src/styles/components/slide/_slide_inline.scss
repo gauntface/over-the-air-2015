@@ -1,12 +1,17 @@
 .slide {
   display: none;
-  width: 100%;
-  height: 100%;
+
+  width: 1024px;
+  height: 768px;
+
+  position:relative;
 
   padding: $slide-vertical-padding $slide-horizontal-padding;
   box-sizing: border-box;
 
   background-color: $gf-slide-bg-color;
+
+  overflow: hidden;
 }
 
 .slide.is-visible {
@@ -48,5 +53,12 @@
 
   &.is-built {
     visibility: visible;
+  }
+}
+
+@media (min-width: 1920px) {
+  .slide {
+    width: 1920px;
+    height: 1080px;
   }
 }
