@@ -1,4 +1,9 @@
 .slide-title.is-visible {
   background-color: $title-slide-bg-color;
   color: $light-text-color;
+
+  main {
+    margin-top: auto;
+    margin-bottom: auto;
+  }
 }

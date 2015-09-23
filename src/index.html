@@ -381,7 +381,7 @@ fetch('users.json')
           <div class="right slide-flex-column">
             <div class="state build">Idle</div>
             <div class="slide-flex-row bottom">
-              <div class="state event build other">...</div>
+              <div class="state event build other">Event x</div>
               <div class="state build terminated">Terminate</div>
             </div>
           </div>
@@ -545,9 +545,9 @@ self.addEventListener('install',
 <pre class="middle highlight"><code>      caches.open(CACHE_NAME)
         .then(function(cache) {
           return cache.addAll(urlsToCache);
-        })
-    );</code></pre>
-<pre class="end dim"><code>  });</code></pre>
+        })</code></pre>
+<pre class="end dim"><code>    );
+  });</code></pre>
       </main>
     </section>
 
@@ -634,6 +634,15 @@ caches.match(event.request)</code></pre>
 
     <section class="slide js-slide">
       <h1>Fetch Event</h1>
+      <h6>...to Cache Static Assets</h6>
+
+      <main style="text-align: center;">
+        <img src="images/waterfall.png" alt="Waterfall of Assets from a Web Page" />
+      </main>
+    </section>
+
+    <section class="slide js-slide">
+      <h1>Fetch Event</h1>
       <h6>How would you cache the fetch response?</h6>
 
       <main>
@@ -701,11 +710,86 @@ return fetch(fetchRequest)
       </main>
     </section>
 
+    <section class="slide js-slide slide-lifecycle">
+      <h1>Activate</h1>
+      <h6>Old and New</h6>
+
+      <main style="margin-top: 0;">
+        <div class="slide-flex-row" style="padding-bottom: 12px;">
+          <div class="state event old">Old SW</div>
+        </div>
+        <div class="slide-flex-row">
+          <div class="left">
+            <div class="left-top slide-flex-row" style="justify-content: flex-start;">
+              <div class="state event build">Installing</div>
+            </div>
+          </div>
+          <div class="right slide-flex-column">
+
+          </div>
+        </div>
+      </main>
+    </section>
+
+    <section class="slide js-slide slide-lifecycle">
+      <h1>Activate</h1>
+      <h6>Old and New</h6>
+
+      <main style="margin-top: 0;">
+        <div class="slide-flex-row" style="padding-bottom: 12px;">
+          <div class="state event old" style="opacity: 0.2;">Old SW</div>
+        </div>
+        <div class="slide-flex-row">
+          <div class="left">
+            <div class="left-top slide-flex-row" style="justify-content: flex-start;">
+              <div class="state event">Installing</div>
+              <div class="build">
+                <img src="images/right-arrow.svg" alt="Right arrow" />
+              </div>
+              <div class="state event build">Activating</div>
+              <div class="build">
+                <img src="images/right-arrow.svg" alt="Right arrow" />
+              </div>
+            </div>
+          </div>
+          <div class="right slide-flex-column">
+            <div class="state build">Idle</div>
+            <div class="slide-flex-row bottom">
+              <div class="state event build other">Event x</div>
+              <div class="state build terminated">Terminate</div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </section>
+
     <section class="slide js-slide">
       <h1>Activate</h1>
       <h6>Activate</h6>
       <main>
-        <p>Old and New Service Worker.</p>
+        <pre><code>self.addEventListener('activate',
+function(event) {
+  var cacheList = ['cache-1', 'cache-2'];
+  event.waitUntil(
+    caches.keys().then(function(cacheNames) {
+      ...
+    })
+  );
+});</code></pre>
+      </main>
+    </section>
+
+    <section class="slide js-slide">
+      <h1>Activate</h1>
+      <h6>Activate</h6>
+      <main>
+        <pre><code>return Promise.all(
+  cacheNames.map(function(cacheName) {
+    if(cacheList.indexOf(cacheName) === -1) {
+      return caches.delete(cacheName);
+    }
+  })
+);</code></pre>
       </main>
     </section>
 
@@ -717,19 +801,30 @@ return fetch(fetchRequest)
     </section>
 
     <section class="slide js-slide">
-      <h1>Chrome Service-Worker Internals</h1>
+      <h1>Current / Old Debug Tools</h1>
+      <h6>chrome://serviceworker-internals</h6>
+
+      <main>
+        <img src="images/service-worker-internals.png" alt="Chrome Service Worker Internals" />
+      </main>
     </section>
 
     <section class="slide js-slide">
-      <h1>Chrome Flags</h1>
+      <h1>DevTools Experiment</h1>
+      <h6>chrome://flags#enable-devtools-experiments</h6>
 
-      <p>FF Flags</p>
+      <main>
+        <img src="images/devtools-experiments.png" alt="Chrome Service Worker Internals" />
+      </main>
     </section>
 
     <section class="slide js-slide">
       <h1>Incognito</h1>
+      <h6>Good Reset Switch</h6>
 
-
+      <main>
+        <img src="images/Incognito.png" alt="Incognito Screenshot" />
+      </main>
     </section>
 
     <section class="slide js-slide slide-title">
@@ -740,43 +835,33 @@ return fetch(fetchRequest)
     </section>
 
     <section class="slide js-slide">
-      <h1>Push Chrome &amp; Firefox</h1>
+      <h1>Push It!!</h1>
+      <h6>It's in the Web</h6>
+
+      <main>
+        Demo
+      </main>
     </section>
 
     <section class="slide js-slide">
-      <h1>Flow</h1>
+      <h1>Things to Note</h1>
+      <h6>Chrome vs FF</h6>
 
-      <p>SW &gt; Permission Check &gt; Subscribe &gt; Subscribed or Blocked </p>
+      <main>
+        <p>Chrome uses <a href="https://developers.google.com/cloud-messaging/">GCM</a></p>
+        <p>Firefox uses the <a href="https://datatracker.ietf.org/doc/draft-thomson-webpush-protocol/">Web Push Protocol</a></p>
+      </main>
+    </section>
+
+    <section class="slide js-slide slide-what">
+      <h1>Things to Note</h1>
+      <h6>No Payload!!!</h6>
     </section>
 
     <section class="slide js-slide">
-      <h1>Flow</h1>
-
-      <p>Subscription object.</p>
-    </section>
-
-    <section class="slide js-slide">
-      <h1>Flow</h1>
-
-      <p>Differences kick in....</p>
-    </section>
-
-    <section class="slide js-slide">
-      <h1>SW Event</h1>
-
-      <p></p>
-    </section>
-
-    <section class="slide js-slide">
-      <h1>notification click Event</h1>
-
-      <p></p>
-    </section>
-
-    <section class="slide js-slide">
-      <h1>Payload</h1>
-
-      <p></p>
+      <main style="text-align: center;" class="vertical-center">
+        <h1 style="font-size: 84px">Why Matt Why?</h1>
+      </main>
     </section>
 
     <section class="slide js-slide slide-title">
@@ -787,30 +872,68 @@ return fetch(fetchRequest)
     </section>
 
     <section class="slide js-slide">
-      <h1>Add to Homescreen</h1>
+      <pre><code>{
+  "short_name": "Kinlan's Amaze App",
+  "name": "Kinlan's Amazing Application ++",
+  "icons": [
+    {
+      "src": "launcher-icon-4x.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    ...
+  ],
+  "start_url": "/index.html",
+  "display": "standalone"
+}</code></pre>
+    </section>
 
-      <p>SW, theme-color, short_name</p>
+    <section class="slide js-slide">
+      <h1>Web App Manifest</h1>
+      <h6>Boring right?</h6>
+
+      <pre><code class="html">&lt;link rel="manifest" href="/manifest.json"&gt;</code></pre>
+    </section>
+
+    <section class="slide js-slide">
+      <h1>Web App Install Banner</h1>
+
+      <main class="slide-flex-row">
+        <div class="left">
+          <p>- Web App Manifest</p>
+          <p>- Have a Service Worker</p>
+          <p>- User visited twice over 2 days during 2 weeks</p>
+        </div>
+        <div class="right">
+          <img src="images/add-to-home-screen.gif" alt="Web App Install Banner" />
+        </div>
+      </main>
     </section>
 
     <section class="slide js-slide">
       <h1>Loading Color</h1>
 
-      <p></p>
+      <main style="text-align: center;">
+        <pre><code>"background_color": "#2196F3"</code></pre>
+        <img style="max-height: 450px;" src="images/background_color.gif" alt="Background Color Gif" />
+      </main>
     </section>
 
-    <section class="slide js-slide">
-      <h1>Add to Homescreen Banner</h1>
-
-      <p></p>
-    </section>
-
-    <section class="slide js-slide">
+    <section id="slide-outro" class="slide js-slide">
       <h1>Cheers.</h1>
       <p>Link to Slides</p>
-      <p>Link to Promises Guide</p>
-      <p>Link to Intro to SW</p>
-      <p>Link to Intro to Push</p>
-      <p>Link to Intro to BG Sync</p>
+      <p>Intro to Promises: <a href="http://bit.ly/intro-promises">http://bit.ly/intro-promises</a></p>
+      <p>Intro to SW: <a href="bit.ly/intro-sw">bit.ly/intro-sw</a></p>
+      <p>Intro to Push: <a href="bit.ly/push-intro">bit.ly/push-intro</a></p>
+      <p>Web App Install Banner: <a href="bit.ly/app-install-intro">bit.ly/app-install-intro</a></p>
+
+      <div class="slide-spacer"></div>
+
+      <div class="slide-flex-row">
+        <h6>Matt Gaunt</h6>
+        <div class="slide-spacer"></div>
+        <img src="images/physical-web-logo.svg" />
+      </div>
     </section>
 
     <script src="scripts/main.js" async></script>

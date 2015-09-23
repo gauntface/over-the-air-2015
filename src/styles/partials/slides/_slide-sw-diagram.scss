@@ -85,3 +85,25 @@ $chrome-logo-z-index: 99;
     }
   }
 }
+
+@media (min-width: $largeSlideWidth) {
+  #slide-sw-diagram {
+    .left, .right {
+      img {
+        position: absolute;
+
+        $img-width: 480px;
+        $img-height: 320px;
+
+        width: $img-width;
+        height: $img-height;
+
+        left: 50%;
+        top: 50%;
+
+        margin-top: -($img-height / 2);
+        margin-left: -($img-width / 2);
+      }
+    }
+  }
+}

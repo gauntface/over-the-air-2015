@@ -48,6 +48,8 @@ $state-btn: 150px;
   .state.other {
     position: relative;
 
+    margin: $base-line;
+
     &:after {
       content: '';
       display: block;
@@ -56,8 +58,8 @@ $state-btn: 150px;
       height: 48px;
 
       position: absolute;
-      top: -12px;
-      right: -12px;
+      top: -($base-line);
+      right: -($base-line);
 
       background-image: url('../images/right-arrow.svg');
       transform: rotate(135deg);
@@ -67,6 +69,8 @@ $state-btn: 150px;
   .state.terminated {
     position: relative;
 
+    margin: $base-line;
+
     &:after {
       content: '';
       display: block;
@@ -75,11 +79,37 @@ $state-btn: 150px;
       height: 48px;
 
       position: absolute;
-      top: -12px;
-      left: -12px;
+      top: -($base-line);
+      left: -($base-line);
 
       background-image: url('../images/right-arrow.svg');
       transform: rotate(45deg);
+    }
+  }
+
+  .state.old {
+    background-color: #BDBDBD;
+  }
+}
+
+@media (min-width: $largeSlideWidth) {
+  .slide-lifecycle {
+    .state.other {
+      margin: $base-line * 3;
+
+      &:after {
+        top: -($base-line * 2);
+        right: -($base-line * 2);
+      }
+    }
+
+    .state.terminated {
+      margin: $base-line * 3;
+
+      &:after {
+        top: -($base-line * 2);
+        right: -($base-line * 2);
+      }
     }
   }
 }

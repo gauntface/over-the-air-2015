@@ -35,9 +35,6 @@
 }
 
 .slide > main {
-  margin-top: auto;
-  margin-bottom: auto;
-
   padding-top: $base-line;
 
   &.slide-flex-column, &.slide-flex-row {
@@ -45,6 +42,11 @@
     margin-bottom: 0;
 
     flex: 1;
+  }
+
+  &.vertical-center {
+    margin-top: auto;
+    margin-bottom: auto;
   }
 }
 
@@ -56,7 +58,7 @@
   }
 }
 
-@media (min-width: 1920px) {
+@media (min-width: $largeSlideWidth) {
   .slide {
     width: 1920px;
     height: 1080px;
