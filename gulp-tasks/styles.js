@@ -16,6 +16,18 @@
  */
 'use strict';
 
+var AUTOPREFIXER_BROWSERS = [
+  'ie >= 10',
+  'ie_mob >= 10',
+  'ff >= 30',
+  'chrome >= 34',
+  'safari >= 7',
+  'opera >= 23',
+  'ios >= 7',
+  'android >= 4.4',
+  'bb >= 10'
+];
+
 var utils = require('./utils');
 var config = utils.getConfig('styles', 'styles');
 
@@ -33,6 +45,7 @@ gulp.task('styles:clean', function(cb) {
 gulp.task('styles:sass', function() {
   return gulp.src(config.src + '/**/*.scss')
       .pipe(plugins.sass({errLogToConsole: true}))
+      .pipe(plugins.autoprefixer(AUTOPREFIXER_BROWSERS))
       .pipe(minifycss())
       .pipe(plugins.license('Apache', {
         organization: 'Google Inc. All rights reserved.',

@@ -39,11 +39,43 @@
       <h3>Promise.</h3>
     </section>
 
+    <section class="slide js-slide">
+      <h1>Normal Site</h1>
+      <h3>Boring.</h3>
+      <main style="text-align: center;">
+        <img style="max-height: 600px;" src="images/guitar-tuner-1.png" alt="Example Web App Guitar Tuner" />
+      </main>
+    </section>
+
+    <section class="slide js-slide">
+      <h1>Normal Site</h1>
+      <h3>Whats all this then?</h3>
+      <main style="text-align: center;">
+        <img style="max-height: 600px;" src="images/guitar-tuner-2.png" alt="Example Web App Guitar Tuner with App Install Banner" />
+      </main>
+    </section>
+
+    <section class="slide js-slide">
+      <h1>Normal Site</h1>
+      <h3>oooohhh Icon</h3>
+      <main style="text-align: center;">
+        <img style="max-height: 600px;" src="images/guitar-tuner-3.png" alt="Example Web App Guitar Tuner with Icon on Homescreen" />
+      </main>
+    </section>
+
+    <section class="slide js-slide">
+      <h1>Normal Site</h1>
+      <h3>oooohhh Icon</h3>
+      <main style="text-align: center;">
+        <img style="max-height: 600px;" src="images/guitar-tuner-4.png" alt="Example Web App Guitar Tuner in Fullscreen" />
+      </main>
+    </section>
+
     <section id="slide-new-apis" class="slide js-slide">
       <h1 class="slide-top-end">New Standards</h1>
       <main class="slide-flex-column">
         <div class="slide-spacer"></div>
-        <h4 class="build">- Service Worker</h4>
+        <h4 class="build">- Service Worker (Offline)</h4>
         <div class="slide-spacer"></div>
         <h4 class="build">- Push Messaging</h4>
         <div class="slide-spacer"></div>
@@ -164,7 +196,7 @@ fetch('users.json')
     <section class="slide js-slide slide-title">
       <main>
         <h1>What are Service Workers?</h1>
-        <h6>Citin'</h6>
+        <h6>Excitin'</h6>
       </main>
     </section>
 
@@ -261,8 +293,8 @@ fetch('users.json')
 
     <section class="slide js-slide slide-title">
       <main>
-        <h6>A Look at the</h6>
-        <h1>Service Worker API</h1>
+        <h6>I can haz</h6>
+        <h1>Service Worker</h1>
       </main>
     </section>
 
@@ -691,17 +723,6 @@ return fetch(fetchRequest)
       </main>
     </section>
 
-    <section id="slide-sw-diagram" class="slide js-slide">
-      <h1>Service Worker.</h1>
-      <h6>Progressive Enhancement Check.</h6>
-
-      <main>
-        <pre class="start highlight"><code>if ('serviceWorker' in navigator) {</code></pre>
-<pre class="end dim"><code>  navigator.serviceWorker.register('/sw.js');
-}</code></pre>
-      </main>
-    </section>
-
     <section class="slide js-slide slide-title">
       <main>
         <h6>Event 3.</h6>
@@ -792,6 +813,17 @@ function(event) {
       </main>
     </section>
 
+    <section id="slide-sw-diagram" class="slide js-slide">
+      <h1>Service Worker.</h1>
+      <h6>Progressive Enhancement Check.</h6>
+
+      <main>
+        <pre class="start highlight"><code>if ('serviceWorker' in navigator) {</code></pre>
+<pre class="end dim"><code>  navigator.serviceWorker.register('/sw.js');
+}</code></pre>
+      </main>
+    </section>
+
     <section class="slide js-slide slide-title">
       <main>
         <h1>Debugging....</h1>
@@ -839,7 +871,7 @@ function(event) {
       <h6>It's in the Web</h6>
 
       <main>
-        <a href="https://simple-push-demo.appspot.com/" target="_blank">Demo</a>
+        <p><a href="https://simple-push-demo.appspot.com/" target="_blank">Demo - simple-push-demo.appspot.com</a></p>
       </main>
     </section>
 
@@ -852,15 +884,15 @@ function(event) {
           <li>
             <p>Supported in Chrome (Stable+)</p>
             <ul>
-              <li>Client Side = Legit.</li>
-              <li>Backend = Not so Legit.</li>
+              <li>Client Side - Uses spec'd API</li>
+              <li>Backend - Proprietary Push Provider <a href="https://developers.google.com/cloud-messaging/">GCM</a></li>
             </ul>
           </li>
           <li>
             <p>Supported in Firefox (Nightly)</p>
             <ul>
-              <li>Client Side = Legit, but missing notifications in SW.</li>
-              <li>Backend = <a href="https://datatracker.ietf.org/doc/draft-thomson-webpush-protocol/">Legit</a>.</li>
+              <li>Client Side - Uses spec'd API, missing notifications in SW.</li>
+              <li>Backend - Using the <a href="https://datatracker.ietf.org/doc/draft-thomson-webpush-protocol/">Web Push Protocol</a>.</li>
             </ul>
           </li>
         <ul>
@@ -904,24 +936,9 @@ function(event) {
 
     <section class="slide js-slide">
       <h1>Web App Manifest</h1>
-      <h6>Boring right?</h6>
+      <h6>Boring? I think not!</h6>
 
       <pre><code class="html">&lt;link rel="manifest" href="/manifest.json"&gt;</code></pre>
-    </section>
-
-    <section class="slide js-slide">
-      <h1>Web App Install Banner</h1>
-
-      <main class="slide-flex-row">
-        <div class="left">
-          <p>- Web App Manifest</p>
-          <p>- Have a Service Worker</p>
-          <p>- User visited twice over 2 days during 2 weeks</p>
-        </div>
-        <div class="right">
-          <img src="images/add-to-home-screen.gif" alt="Web App Install Banner" />
-        </div>
-      </main>
     </section>
 
     <section class="slide js-slide">
@@ -936,16 +953,16 @@ function(event) {
     <section id="slide-outro" class="slide js-slide">
       <h1>Cheers.</h1>
       <p></p>
-      <p>Slides: <a href="bit.ly/gf-ota2015">bit.ly/gf-ota2015</a></p>
-      <p>Intro to Promises: <a href="http://bit.ly/intro-promises">http://bit.ly/intro-promises</a></p>
-      <p>Intro to SW: <a href="bit.ly/intro-sw">bit.ly/intro-sw</a></p>
-      <p>Intro to Push: <a href="bit.ly/push-intro">bit.ly/push-intro</a></p>
-      <p>Web App Install Banner: <a href="bit.ly/app-install-intro">bit.ly/app-install-intro</a></p>
+      <p>Slides: <a href="http://bit.ly/gf-ota2015">bit.ly/gf-ota2015</a></p>
+      <p>Intro to Promises: <a href="http://bit.ly/intro-promises">bit.ly/intro-promises</a></p>
+      <p>Intro to SW: <a href="http://bit.ly/intro-sw">bit.ly/intro-sw</a></p>
+      <p>Intro to Push: <a href="http://bit.ly/push-intro">bit.ly/push-intro</a></p>
+      <p>Web App Install Banner: <a href="http://bit.ly/app-install-intro">bit.ly/app-install-intro</a></p>
 
       <div class="slide-spacer"></div>
 
       <div class="slide-flex-row">
-        <h6>Matt Gaunt</h6>
+        <h6>@gauntface</h6>
         <div class="slide-spacer"></div>
         <img src="images/physical-web-logo.svg" />
       </div>

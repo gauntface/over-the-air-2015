@@ -21,6 +21,7 @@
     "browser-sync": "^2.9.3",
     "chalk": "^1.1.0",
     "glob": "^5.0.14",
+    "gulp-autoprefixer": "^3.0.2",
     "gulp-cache": "^0.2.10",
     "gulp-imagemin": "^2.3.0",
     "gulp-jshint": "^1.11.2",
